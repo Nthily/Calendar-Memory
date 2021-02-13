@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">随想</string>
+    <string name="message">消息通知</string>
+    <string name="main_msg">我的最爱</string>
+    <string name="description_fav">null</string>
+    <string name="description_add">add some function</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="setting">欢迎来到设置界面!</string>
+
+    <string name="cal_cal">日程</string>
+    <string name="cal_fav">句子</string>
+    <string name="cal_misc">杂项</string>
+
+    <string name="test_1">今天要写作业打篮球看书还要听音乐，想去北京看风景</string>
+    <string name="test_2">今天下午记得写作业</string>
+    <string name="recently_event">最近日程</string>
+    <string name="test_">他只能往没有路的荒野上跑，因为虎人不敢离开那无数先辈用死亡探索出
+        来的安全道路，可是在这个世界里，偏离了已知的路线跟死亡没什么差别他只能往没有路的荒野上跑，因为虎人不敢离开那无数先辈用死亡探索出来的安全道路，可是在这个世界里，偏离了已知的路线跟死亡没什么差别</string>
+</resources>
