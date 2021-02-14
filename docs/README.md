@@ -8,8 +8,7 @@
 
 ### 一些简单的成品图
 
-[![ys64zT.gif](https://s3.ax1x.com/2021/02/14/ys64zT.gif)](https://imgchr.com/i/ys64zT)
-
+[![ys6TL4.gif](https://s3.ax1x.com/2021/02/14/ys6TL4.gif)](https://imgchr.com/i/ys6TL4)
 
 ### 框架信息: 
 
