@@ -7,7 +7,7 @@
 ### 项目介绍：为了记录一些自己的事情，是日程也可能是经历之类的（虽然这类软件已经很多了，不过作为练习一下还是上传上来了，但是坑还没有填完
 
 ### 一些简单的成品图
-
+[![ysciTA.gif](https://s3.ax1x.com/2021/02/14/ysciTA.gif)](https://imgchr.com/i/ysciTA)
 
 ### 框架信息: 
    - #### Gradle Version 6.1.1 / Android Gradle Plugin 4.0.1 Version
