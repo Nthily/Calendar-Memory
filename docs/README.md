@@ -8,20 +8,19 @@
 
 ### 一些简单的成品图
 
-[![ys6NdA.gif](https://s3.ax1x.com/2021/02/14/ys6NdA.gif)](https://imgchr.com/i/ys6NdA)
+|[![ys6NdA.gif](https://s3.ax1x.com/2021/02/14/ys6NdA.gif)](https://imgchr.com/i/ys6NdA)|
 
-  
 
 ### 框架信息: 
 
-  #### 1. Gradle Version 6.1.1 / Android Gradle Plugin 4.0.1 Version
+   - #### Gradle Version 6.1.1 / Android Gradle Plugin 4.0.1 Version
 
-  #### 2. JDK 13.0.2
+   - #### JDK 13.0.2
 
-  #### 3. Android API SDK Version 9.0 (pie)
+   - #### Android API SDK Version 9.0 (pie)
 
-  #### 4. [SmartRefreshLayout](https://github.com/scwang90/SmartRefreshLayout)
+   - #### [SmartRefreshLayout](https://github.com/scwang90/SmartRefreshLayout)
 
-  #### 5. [hitokoto-api](https://github.com/hitokoto-osc/hitokoto-api)
+   - #### [hitokoto-api](https://github.com/hitokoto-osc/hitokoto-api)
 
-  #### 6. [Material Design](https://material.io/resources/icons/)
+   - #### [Material Design](https://material.io/resources/icons/)
