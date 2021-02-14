@@ -8,8 +8,6 @@
 
 ### 一些简单的成品图
 
-[![ys6NdA.gif](https://s3.ax1x.com/2021/02/14/ys6NdA.gif)](https://imgchr.com/i/ys6NdA)
-
 
 ### 框架信息: 
    - #### Gradle Version 6.1.1 / Android Gradle Plugin 4.0.1 Version
