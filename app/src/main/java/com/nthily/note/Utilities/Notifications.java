@@ -23,9 +23,9 @@ public class Notifications {
                 .setAutoCancel(false)
                 .setContentTitle("日程本")
                 .setContentText(cs)
-                .setSmallIcon(R.mipmap.ic_launcher)
+                .setSmallIcon(R.mipmap.ic_app)
                 .setShowWhen(false)
-                .setLargeIcon(BitmapFactory.decodeResource(context.getResources(), R.mipmap.ic_topt_foreground))
+                .setLargeIcon(BitmapFactory.decodeResource(context.getResources(), R.mipmap.ic_app))
                 .build();
 
         notification.flags |= Notification.FLAG_ONGOING_EVENT;
