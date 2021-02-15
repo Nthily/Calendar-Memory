@@ -10,6 +10,7 @@
 
 [![yscJpV.gif](https://s3.ax1x.com/2021/02/14/yscJpV.gif)](https://imgchr.com/i/yscJpV)
 
+[![yc9Yi4.jpg](https://s3.ax1x.com/2021/02/16/yc9Yi4.jpg)](https://imgchr.com/i/yc9Yi4)
 
 ### 框架信息: 
    - #### Gradle Version 6.1.1 / Android Gradle Plugin 4.0.1 Version
