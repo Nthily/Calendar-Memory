@@ -4,9 +4,9 @@
 
 
 
-### Descripción del proyecto: Grabar algo sobre ti mismo, una agenda o tal vez una experiencia o algo así (ya hay un montón de este tipo de software, pero lo subí como un ejercicio, pero aún no lo he terminado, Si tienes alguna buena idea, no dudes en subir PR)
+### Descripción del proyecto: Grabar algo sobre ti mismo, una agenda o tal vez una experiencia o algo así (ya hay un montón de este tipo de software, pero lo subí como un ejercicio, pero aún no lo he terminado, Si tienes alguna buena idea, no dudes en presentar PR)
 
-### Algunas fotos sencillas del producto terminado
+### Algunas fotos sencillas del producto terminado:
 
 [![yscJpV.gif](https://s3.ax1x.com/2021/02/14/yscJpV.gif)](https://imgchr.com/i/yscJpV)[![yc9tJJ.jpg](https://s3.ax1x.com/2021/02/16/yc9tJJ.jpg)](https://imgchr.com/i/yc9tJJ)
 
