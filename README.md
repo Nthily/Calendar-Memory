@@ -15,5 +15,5 @@
    - #### JDK 13.0.2
    - #### Android API SDK Version 9.0 (pie)
    - #### [SmartRefreshLayout](https://github.com/scwang90/SmartRefreshLayout)
-   - #### [hitokoto-api](https://github.com/hitokoto-osc/hitokoto-api)
+   - #### [hitokoto-api 一言](https://github.com/hitokoto-osc/hitokoto-api)
    - #### [Material Design](https://material.io/resources/icons/)
