@@ -12,6 +12,7 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import com.nthily.note.R;
+import com.nthily.note.Utilities.Utils;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -28,6 +29,7 @@ public class Schedule extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private boolean flag = false;
 
     public ScrollView scrollView;
     public LinearLayout list_linear;
@@ -77,7 +79,22 @@ public class Schedule extends Fragment {
         card_layout = view.findViewById(R.id.card_layout);
         text_ui.setVisibility(View.GONE);
 
-
+        expand.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!flag) {
+                    flag = true;
+                    Utils.expand(text_ui);
+                    expand.setImageResource(R.drawable.ic_close);
+                    Utils.setShowAnimation(expand, 800);
+                } else {
+                    flag = false;
+                    Utils.collapse(text_ui);
+                    expand.setImageResource(R.drawable.ic_expand_more_black_18dp);
+                    Utils.setShowAnimation(expand, 800);
+                }
+            }
+        });
         return view;
     }
 

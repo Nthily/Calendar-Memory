@@ -3,15 +3,18 @@ package com.nthily.note.Utilities;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.OvershootInterpolator;
+import android.view.animation.Transformation;
 import android.view.animation.TranslateAnimation;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.annotation.DrawableRes;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.interpolator.view.animation.FastOutLinearInInterpolator;
 
 import com.nthily.note.R;
 
@@ -49,7 +52,7 @@ public class Utils extends AppCompatActivity {
         mShowAnimation.setFillAfter(true);
         view.startAnimation(mShowAnimation);
     }
-
+/*
     public static void moveTotop(final View view, final float p1, final float p2) {
         TranslateAnimation animation = new TranslateAnimation(
                 Animation.ABSOLUTE, 0f,
@@ -91,7 +94,7 @@ public class Utils extends AppCompatActivity {
         view.startAnimation(animation);
     }
 
-    /*public static void moveTobut(final View view, final float p1, final float p2) {
+    public static void moveTobut(final View view, final float p1, final float p2) {
         TranslateAnimation animation = new TranslateAnimation(
                 Animation.ABSOLUTE, 0f,
                 Animation.ABSOLUTE, 0f,
@@ -202,5 +205,65 @@ public class Utils extends AppCompatActivity {
 
     public static void setFavoriteIcon(ImageButton imageButton, @DrawableRes int resId) {
         imageButton.setImageResource(resId);
+    }
+    public static void expand(final View view) {
+        view.measure(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        final int viewHeight = view.getMeasuredHeight();
+        view.getLayoutParams().height = 0;
+        System.out.println(viewHeight);
+        view.setVisibility(View.VISIBLE);
+
+        final Animation animationn = new Animation() {
+            @Override
+            protected void applyTransformation(float interpolatedTime, Transformation t) {
+                if (interpolatedTime == 1) {
+                    view.getLayoutParams().height = ViewGroup.LayoutParams.WRAP_CONTENT;
+                } else {
+                    view.getLayoutParams().height = (int) (viewHeight * interpolatedTime);
+                }
+                view.requestLayout();
+            }
+        };
+        animationn.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+
+                animation = new TranslateAnimation(0.0f, 0.0f, 0.0f, 0.0f);
+                animation.setDuration(1);
+                animationn.setDuration(300);
+                animationn.setInterpolator(new FastOutLinearInInterpolator());
+                view.startAnimation(animationn);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+    }
+
+    public static void collapse(final View view) {
+        view.measure(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        final int viewHeight = view.getMeasuredHeight();
+
+        Animation animation = new Animation() {
+            @Override
+            protected void applyTransformation(float interpolatedTime, Transformation t) {
+                if (interpolatedTime == 1) {
+                    view.setVisibility(View.GONE);
+                } else {
+                    view.getLayoutParams().height = viewHeight - (int) (viewHeight * interpolatedTime);
+                    view.requestLayout();
+                }
+            }
+        };
+        animation.setDuration(300);
+        animation.setInterpolator(new FastOutLinearInInterpolator());
+        view.startAnimation(animation);
     }
 }
