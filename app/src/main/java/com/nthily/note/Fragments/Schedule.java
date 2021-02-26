@@ -12,6 +12,7 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import com.nthily.note.R;
+import com.nthily.note.Utilities.ResizeAnimation;
 import com.nthily.note.Utilities.Utils;
 
 /**
@@ -78,13 +79,16 @@ public class Schedule extends Fragment {
         expand =  view.findViewById(R.id.expand);
         card_layout = view.findViewById(R.id.card_layout);
         text_ui.setVisibility(View.GONE);
-
         expand.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(!flag) {
                     flag = true;
-                    Utils.expand(text_ui);
+                    int targetSize = Utils.getViewMeasureSpec(text_ui);
+                    text_ui.setVisibility(View.VISIBLE);
+                    ResizeAnimation resizeAnimation = new ResizeAnimation(text_ui, targetSize);
+                    resizeAnimation.setDuration(700);
+                    text_ui.startAnimation(resizeAnimation);
                     expand.setImageResource(R.drawable.ic_close);
                     Utils.setShowAnimation(expand, 800);
                 } else {

@@ -1,18 +1,28 @@
 package com.nthily.note.Utilities;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
+import android.animation.TypeEvaluator;
+import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.transition.Transition;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.OvershootInterpolator;
 import android.view.animation.Transformation;
 import android.view.animation.TranslateAnimation;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.annotation.DrawableRes;
+import androidx.annotation.IdRes;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.interpolator.view.animation.FastOutLinearInInterpolator;
 
@@ -206,25 +216,48 @@ public class Utils extends AppCompatActivity {
     public static void setFavoriteIcon(ImageButton imageButton, @DrawableRes int resId) {
         imageButton.setImageResource(resId);
     }
+
+    public static void expandAnimation(@IdRes int id) {
+
+
+    }
+
+    public static int getViewMeasureSpec(View view) {
+        int matchParentMeasureSpec = View.MeasureSpec.makeMeasureSpec(((View) view.getParent()).getWidth(), View.MeasureSpec.EXACTLY);
+        int wrapContentMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
+        view.measure(matchParentMeasureSpec, wrapContentMeasureSpec);
+        return view.getMeasuredHeight();
+    }
+
     public static void expand(final View view) {
-        view.measure(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        final int viewHeight = view.getMeasuredHeight();
-        view.getLayoutParams().height = 0;
-        System.out.println(viewHeight);
+        int matchParentMeasureSpec = View.MeasureSpec.makeMeasureSpec(((View) view.getParent()).getWidth(), View.MeasureSpec.EXACTLY);
+        int wrapContentMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
+        view.measure(matchParentMeasureSpec, wrapContentMeasureSpec);
+        final int targetHeight = view.getMeasuredHeight();
+        System.out.println(view.getMeasuredHeight());
+        // Older versions of android (pre API 21) cancel animations for views with a height of 0.
+        view.getLayoutParams().height = 1;
         view.setVisibility(View.VISIBLE);
 
-        final Animation animationn = new Animation() {
+        Animation a = new Animation()
+        {
             @Override
             protected void applyTransformation(float interpolatedTime, Transformation t) {
-                if (interpolatedTime == 1) {
-                    view.getLayoutParams().height = ViewGroup.LayoutParams.WRAP_CONTENT;
-                } else {
-                    view.getLayoutParams().height = (int) (viewHeight * interpolatedTime);
-                }
+                view.getLayoutParams().height = interpolatedTime == 1
+                        ? LinearLayout.LayoutParams.WRAP_CONTENT
+                        : (int)(targetHeight * interpolatedTime);
                 view.requestLayout();
             }
+
+            @Override
+            public boolean willChangeBounds() {
+                return true;
+            }
+
         };
-        animationn.setAnimationListener(new Animation.AnimationListener() {
+        a.setDuration(700);
+        view.startAnimation(a);
+        a.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
 
@@ -232,12 +265,9 @@ public class Utils extends AppCompatActivity {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-
                 animation = new TranslateAnimation(0.0f, 0.0f, 0.0f, 0.0f);
                 animation.setDuration(1);
-                animationn.setDuration(300);
-                animationn.setInterpolator(new FastOutLinearInInterpolator());
-                view.startAnimation(animationn);
+                view.startAnimation(animation);
             }
 
             @Override
@@ -245,25 +275,32 @@ public class Utils extends AppCompatActivity {
 
             }
         });
+    /*    a.setDuration((int)(700));
+        v.startAnimation(a);
+        a = new TranslateAnimation(0.0f, 0.0f, 0.0f, 0.0f);
+        a.setDuration(1);*/
     }
 
     public static void collapse(final View view) {
-        view.measure(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        final int viewHeight = view.getMeasuredHeight();
-
-        Animation animation = new Animation() {
+        final int initialHeight = view.getMeasuredHeight();
+        System.out.println(initialHeight);
+        Animation animation = new Animation()
+        {
             @Override
             protected void applyTransformation(float interpolatedTime, Transformation t) {
-                if (interpolatedTime == 1) {
+                if(interpolatedTime == 1){
                     view.setVisibility(View.GONE);
-                } else {
-                    view.getLayoutParams().height = viewHeight - (int) (viewHeight * interpolatedTime);
+                }else{
+                    view.getLayoutParams().height = initialHeight - (int)(initialHeight * interpolatedTime);
                     view.requestLayout();
                 }
             }
+            @Override
+            public boolean willChangeBounds() {
+                return true;
+            }
         };
-        animation.setDuration(300);
-        animation.setInterpolator(new FastOutLinearInInterpolator());
+        animation.setDuration(700);
         view.startAnimation(animation);
     }
 }
