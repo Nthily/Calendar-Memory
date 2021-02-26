@@ -8,16 +8,12 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.TranslateAnimation;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import com.nthily.note.R;
 import com.nthily.note.Utilities.ResizeAnimation;
 import com.nthily.note.Utilities.Utils;
-
-import java.util.logging.Handler;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -38,7 +34,7 @@ public class Schedule extends Fragment {
 
     public ScrollView scrollView;
     public LinearLayout list_linear;
-    public LinearLayout text_ui;
+    public LinearLayout textUI;
     public ConstraintLayout card_layout;
     public ImageButton expand;
 
@@ -77,7 +73,7 @@ public class Schedule extends Fragment {
 
         scrollView = view.findViewById(R.id.scrollview);
         list_linear = view.findViewById(R.id.List_linearlayout);
-        text_ui = view.findViewById(R.id.text_ui);
+        textUI = view.findViewById(R.id.text_ui);
         expand =  view.findViewById(R.id.expand);
         card_layout = view.findViewById(R.id.card_layout);
     }
@@ -88,34 +84,34 @@ public class Schedule extends Fragment {
         View view = inflater.inflate(R.layout.fragment_cal__list, container, false);
         findByid(view);
 
-        text_ui.setVisibility(View.GONE);
+        textUI.setVisibility(View.GONE);
 
         expand.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(!flag) {
 
-                    text_ui.postDelayed(new Runnable() {    //延迟启动解决 textview 内容过多引起的动画闪烁问题
+                    textUI.postDelayed(new Runnable() {    //延迟启动解决 textview 内容过多引起的动画闪烁问题
                         @Override
                         public void run() {
-                            text_ui.setVisibility(View.VISIBLE);
+                            textUI.setVisibility(View.VISIBLE);
                         }
                     }, 100);
 
                     flag = true;
-                    int targetSize = Utils.getViewMeasuredHeight(text_ui);
+                    int targetSize = Utils.getViewMeasuredHeight(textUI);
 
-                    ResizeAnimation resizeAnimation = new ResizeAnimation(text_ui, targetSize);
+                    ResizeAnimation resizeAnimation = new ResizeAnimation(textUI, targetSize);
                     resizeAnimation.setDuration(850);
-                    text_ui.startAnimation(resizeAnimation);
+                    textUI.startAnimation(resizeAnimation);
 
                     expand.setImageResource(R.drawable.ic_close);
                     Utils.setShowAnimation(expand, 800);
 
                 } else {
                     flag = false;
-                    Utils.collapse(text_ui);
-                    expand.setImageResource(R.drawable.ic_expand_more_black_18dp);
+                    Utils.collapse(textUI);
+                    expand.setImageResource(R.drawable.ic_expand_more_black);
                     Utils.setShowAnimation(expand, 800);
                 }
             }

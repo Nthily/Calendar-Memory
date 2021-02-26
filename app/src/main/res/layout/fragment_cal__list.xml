@@ -86,7 +86,7 @@
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
-                                app:srcCompat="@drawable/ic_expand_more_black_18dp"
+                                app:srcCompat="@drawable/ic_expand_more_black"
                                 tools:ignore="PrivateResource" />
 
                             <TextView

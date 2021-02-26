@@ -73,22 +73,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.favorite_txt:
 
                 switchFragment(fav);
-                favorite.setImageResource(R.drawable.ic_favorite_green_24dp);
-                calendar.setImageResource(R.drawable.ic_date_range_white_24dp);
+                favorite.setImageResource(R.drawable.ic_favorite_green);
+                calendar.setImageResource(R.drawable.ic_date_range_white);
                 setting.setImageResource(R.drawable.ic_settings);
                 break;
             case R.id.calendar:
 
                 switchFragment(cal);
-                favorite.setImageResource(R.drawable.ic_favorite_white_24dp);
-                calendar.setImageResource(R.drawable.ic_date_range_green_24dp);
+                favorite.setImageResource(R.drawable.ic_favorite_white);
+                calendar.setImageResource(R.drawable.ic_date_range_green);
                 setting.setImageResource(R.drawable.ic_settings);
                 break;
             case R.id.setting:
 
                 switchFragment(set);
-                favorite.setImageResource(R.drawable.ic_favorite_white_24dp);
-                calendar.setImageResource(R.drawable.ic_date_range_white_24dp);
+                favorite.setImageResource(R.drawable.ic_favorite_white);
+                calendar.setImageResource(R.drawable.ic_date_range_white);
                 setting.setImageResource(R.drawable.ic_settings_green);
                 break;
         }
