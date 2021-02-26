@@ -11,6 +11,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageButton;
 
+import com.nthily.note.Fragments.DialogButtonFragment;
 import com.nthily.note.Fragments.Schedule;
 import com.nthily.note.Fragments.Calendar;
 import com.nthily.note.Fragments.Setting;
@@ -28,6 +29,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Calendar cal;
     private Setting set;
     private Schedule schedule;
+    private DialogButtonFragment dialogButtonFragment;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,6 +114,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         cal = new Calendar();
         set = new Setting();
         schedule = new Schedule();
+        dialogButtonFragment = new DialogButtonFragment();
+
         getSupportFragmentManager().beginTransaction().add(R.id.main_frame, fav).commit();
         getSupportFragmentManager().beginTransaction().add(R.id.main_frame, cal).hide(cal).commit();
         getSupportFragmentManager().beginTransaction().add(R.id.main_frame, set).hide(set).commit();

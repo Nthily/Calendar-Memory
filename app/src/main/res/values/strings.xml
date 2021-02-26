@@ -22,4 +22,7 @@
     <string name="null_info">null</string>
     <string name="task_title">工作会议</string>
     <string name="task_time">17.00 – 18.00</string>
+    <string name="remind_content">来写写什么东西吧~</string>
+    <string name="finish_button">完成</string>
+    <string name="title">日程标题</string>
 </resources>

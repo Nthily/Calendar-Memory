@@ -1,13 +1,22 @@
 package com.nthily.note.Fragments;
 
+import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.nthily.note.R;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link Calendar#newInstance} factory method to
@@ -15,6 +24,8 @@ import com.nthily.note.R;
  */
 public class Calendar extends Fragment {
 
+
+    public static final int REQUEST_CODE = 1;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -23,7 +34,7 @@ public class Calendar extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
+    private FloatingActionButton addEvent;
 
     public Calendar() {
         // Required empty public constructor
@@ -55,12 +66,42 @@ public class Calendar extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
+    private void findByid(View view) {
+        addEvent = view.findViewById(R.id.addEvent);
+    }
+
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_CODE){
+
+            String title = data.getStringExtra(DialogButtonFragment.TITLE);
+            String content= data.getStringExtra(DialogButtonFragment.CONTENT);
+
+        }
+    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_calendar, container, false);
+        findByid(view);
 
-        return inflater.inflate(R.layout.fragment_calendar, container, false);
+        addEvent.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("RtlHardcoded")
+            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setView(R.layout.fragment_dialog_button);
+                AlertDialog dialog = builder.create();
+                dialog.show();
+
+            }
+        });
+
+        return view;
     }
 }

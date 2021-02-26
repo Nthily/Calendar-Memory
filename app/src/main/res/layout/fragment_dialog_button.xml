@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragments.DialogButtonFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginStart="64dp"
+            android:layout_marginTop="28dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView3">
+
+            <EditText
+                android:id="@+id/title"
+                android:layout_width="200dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/edit_input_border"
+                android:paddingStart="10dp"
+                tools:ignore="RtlSymmetry"
+                android:inputType="text"
+                android:autofillHints="" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="7dp"
+                android:background="#ffffff"
+                android:text="@string/title" />
+
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="65dp"
+            android:layout_height="58dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:src="@mipmap/bbb"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.475"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/content"
+            android:layout_width="280dp"
+            android:layout_height="135dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/edit_input_border"
+            android:ems="10"
+            android:enabled="true"
+            android:gravity="top"
+            android:hint="@string/remind_content"
+            android:inputType="textMultiLine"
+            android:maxHeight="100dp"
+            android:maxLines="10"
+            android:minHeight="20dp"
+            android:minLines="8"
+            android:padding="10dp"
+            android:scrollbars="vertical"
+            android:selectAllOnFocus="true"
+            android:textColorHint="#95A1AA"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
+            android:autofillHints="" />
+
+        <ImageView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="30dp"
+            app:layout_constraintBottom_toTopOf="@+id/content"
+            app:layout_constraintStart_toEndOf="@+id/relativeLayout"
+            app:srcCompat="@drawable/ic_date_range_24px" />
+
+        <Button
+            android:id="@+id/finish"
+            android:layout_width="280dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="28dp"
+            android:text="@string/finish_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.503"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/content" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
