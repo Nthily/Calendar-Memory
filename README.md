@@ -8,7 +8,7 @@
 
 ### 一些简单的成品图
 
-[![yscJpV.gif](https://s3.ax1x.com/2021/02/14/yscJpV.gif)](https://imgchr.com/i/yscJpV)[![yzzNw9.gif](https://s3.ax1x.com/2021/02/26/yzzNw9.gif)](https://imgtu.com/i/yzzNw9)
+[![yscJpV.gif](https://s3.ax1x.com/2021/02/14/yscJpV.gif)](https://imgchr.com/i/yscJpV)[![yzzo6S.gif](https://s3.ax1x.com/2021/02/26/yzzo6S.gif)](https://imgtu.com/i/yzzo6S)
 
 ### 框架信息: 
    - #### Gradle Version 6.1.1 / Android Gradle Plugin 4.0.1 Version
