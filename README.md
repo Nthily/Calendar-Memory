@@ -9,7 +9,7 @@
 ### 一些简单的成品图
 
 [![yscJpV.gif](https://s3.ax1x.com/2021/02/14/yscJpV.gif)](https://imgchr.com/i/yscJpV)
-<img src="https://imgtu.com/i/6S9kz6" width="300" height="500" />
+<img src="https://s3.ax1x.com/2021/02/26/6S9kz6.gif" width="300" height="500" />
 
 ### 框架信息: 
    - #### Gradle Version 6.1.1 / Android Gradle Plugin 4.0.1 Version
