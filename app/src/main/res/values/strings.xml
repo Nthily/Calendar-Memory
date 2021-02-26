@@ -17,4 +17,9 @@
     <string name="recently_event">最近日程</string>
     <string name="test_">他只能往没有路的荒野上跑，因为虎人不敢离开那无数先辈用死亡探索出
         来的安全道路，可是在这个世界里，偏离了已知的路线跟死亡没什么差别他只能往没有路的荒野上跑，因为虎人不敢离开那无数先辈用死亡探索出来的安全道路，可是在这个世界里，偏离了已知的路线跟死亡没什么差别</string>
+
+    <string name="schedule_pic">schedule_pic</string>
+    <string name="null_info">null</string>
+    <string name="task_title">工作会议</string>
+    <string name="task_time">17.00 – 18.00</string>
 </resources>

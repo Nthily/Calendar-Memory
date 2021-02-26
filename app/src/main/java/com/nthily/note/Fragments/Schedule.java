@@ -8,12 +8,16 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.TranslateAnimation;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import com.nthily.note.R;
 import com.nthily.note.Utilities.ResizeAnimation;
 import com.nthily.note.Utilities.Utils;
+
+import java.util.logging.Handler;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -90,9 +94,16 @@ public class Schedule extends Fragment {
             @Override
             public void onClick(View v) {
                 if(!flag) {
+
+                    text_ui.postDelayed(new Runnable() {    //延迟启动解决 textview 内容过多引起的动画闪烁问题
+                        @Override
+                        public void run() {
+                            text_ui.setVisibility(View.VISIBLE);
+                        }
+                    }, 100);
+
                     flag = true;
                     int targetSize = Utils.getViewMeasuredHeight(text_ui);
-                    text_ui.setVisibility(View.VISIBLE);
 
                     ResizeAnimation resizeAnimation = new ResizeAnimation(text_ui, targetSize);
                     resizeAnimation.setDuration(850);
@@ -100,6 +111,7 @@ public class Schedule extends Fragment {
 
                     expand.setImageResource(R.drawable.ic_close);
                     Utils.setShowAnimation(expand, 800);
+
                 } else {
                     flag = false;
                     Utils.collapse(text_ui);

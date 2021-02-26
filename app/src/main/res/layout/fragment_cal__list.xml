@@ -47,9 +47,10 @@
                             app:cardCornerRadius="15dp">
 
                             <ImageView
-                                android:id="@+id/imageView4"
+                                android:id="@+id/schedule_pic"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:contentDescription="@string/null_info"
                                 android:scaleType="fitXY"
                                 android:src="@mipmap/bbb" />
                         </androidx.cardview.widget.CardView>
@@ -63,15 +64,17 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="16dp"
+                                android:contentDescription="@string/null_info"
                                 android:gravity="center_horizontal"
-                                android:text="工作会议"
+                                android:text="@string/task_title"
                                 android:textColor="#000000"
                                 android:textSize="16sp"
                                 android:textStyle="bold"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
-                                app:layout_constraintVertical_bias="0.474" />
+                                app:layout_constraintVertical_bias="0.474"
+                                tools:text="@string/task_title" />
 
                             <ImageButton
                                 android:id="@+id/expand"
@@ -79,6 +82,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginEnd="20dp"
                                 android:background="#00000000"
+                                android:contentDescription="@string/null_info"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
@@ -91,7 +95,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="16dp"
                                 android:layout_marginTop="6dp"
-                                android:text="17.00 - 18.00"
+                                android:text="@string/task_time"
                                 android:textSize="14sp"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toBottomOf="@+id/textView6" />
@@ -124,6 +128,8 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
+
         </LinearLayout>
+
     </ScrollView>
 </FrameLayout>
