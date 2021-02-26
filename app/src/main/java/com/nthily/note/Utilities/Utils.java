@@ -217,68 +217,11 @@ public class Utils extends AppCompatActivity {
         imageButton.setImageResource(resId);
     }
 
-    public static void expandAnimation(@IdRes int id) {
-
-
-    }
-
-    public static int getViewMeasureSpec(View view) {
+    public static int getViewMeasuredHeight(View view) {
         int matchParentMeasureSpec = View.MeasureSpec.makeMeasureSpec(((View) view.getParent()).getWidth(), View.MeasureSpec.EXACTLY);
         int wrapContentMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
         view.measure(matchParentMeasureSpec, wrapContentMeasureSpec);
         return view.getMeasuredHeight();
-    }
-
-    public static void expand(final View view) {
-        int matchParentMeasureSpec = View.MeasureSpec.makeMeasureSpec(((View) view.getParent()).getWidth(), View.MeasureSpec.EXACTLY);
-        int wrapContentMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
-        view.measure(matchParentMeasureSpec, wrapContentMeasureSpec);
-        final int targetHeight = view.getMeasuredHeight();
-        System.out.println(view.getMeasuredHeight());
-        // Older versions of android (pre API 21) cancel animations for views with a height of 0.
-        view.getLayoutParams().height = 1;
-        view.setVisibility(View.VISIBLE);
-
-        Animation a = new Animation()
-        {
-            @Override
-            protected void applyTransformation(float interpolatedTime, Transformation t) {
-                view.getLayoutParams().height = interpolatedTime == 1
-                        ? LinearLayout.LayoutParams.WRAP_CONTENT
-                        : (int)(targetHeight * interpolatedTime);
-                view.requestLayout();
-            }
-
-            @Override
-            public boolean willChangeBounds() {
-                return true;
-            }
-
-        };
-        a.setDuration(700);
-        view.startAnimation(a);
-        a.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationStart(Animation animation) {
-
-            }
-
-            @Override
-            public void onAnimationEnd(Animation animation) {
-                animation = new TranslateAnimation(0.0f, 0.0f, 0.0f, 0.0f);
-                animation.setDuration(1);
-                view.startAnimation(animation);
-            }
-
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-
-            }
-        });
-    /*    a.setDuration((int)(700));
-        v.startAnimation(a);
-        a = new TranslateAnimation(0.0f, 0.0f, 0.0f, 0.0f);
-        a.setDuration(1);*/
     }
 
     public static void collapse(final View view) {
@@ -300,7 +243,7 @@ public class Utils extends AppCompatActivity {
                 return true;
             }
         };
-        animation.setDuration(700);
+        animation.setDuration(850);
         view.startAnimation(animation);
     }
 }

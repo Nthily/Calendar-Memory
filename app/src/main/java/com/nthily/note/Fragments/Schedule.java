@@ -69,26 +69,35 @@ public class Schedule extends Fragment {
         }
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_cal__list, container, false);
+    private void findByid(View view) {
+
         scrollView = view.findViewById(R.id.scrollview);
         list_linear = view.findViewById(R.id.List_linearlayout);
         text_ui = view.findViewById(R.id.text_ui);
         expand =  view.findViewById(R.id.expand);
         card_layout = view.findViewById(R.id.card_layout);
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_cal__list, container, false);
+        findByid(view);
+
         text_ui.setVisibility(View.GONE);
+
         expand.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(!flag) {
                     flag = true;
-                    int targetSize = Utils.getViewMeasureSpec(text_ui);
+                    int targetSize = Utils.getViewMeasuredHeight(text_ui);
                     text_ui.setVisibility(View.VISIBLE);
+
                     ResizeAnimation resizeAnimation = new ResizeAnimation(text_ui, targetSize);
-                    resizeAnimation.setDuration(700);
+                    resizeAnimation.setDuration(850);
                     text_ui.startAnimation(resizeAnimation);
+
                     expand.setImageResource(R.drawable.ic_close);
                     Utils.setShowAnimation(expand, 800);
                 } else {
