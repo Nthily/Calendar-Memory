@@ -11,9 +11,13 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
+import android.widget.TextView;
+
 import com.nthily.note.R;
 import com.nthily.note.Utilities.ResizeAnimation;
 import com.nthily.note.Utilities.Utils;
+
+import org.w3c.dom.Text;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -37,6 +41,8 @@ public class Schedule extends Fragment {
     public LinearLayout textUI;
     public ConstraintLayout card_layout;
     public ImageButton expand;
+    public TextView scheduleTitle;
+    public TextView schuduleContent;
 
     public Schedule() {
         // Required empty public constructor
@@ -76,12 +82,14 @@ public class Schedule extends Fragment {
         textUI = view.findViewById(R.id.text_ui);
         expand =  view.findViewById(R.id.expand);
         card_layout = view.findViewById(R.id.card_layout);
+        scheduleTitle = view.findViewById(R.id.scheduleTitle);
+        schuduleContent = view.findViewById(R.id.scheduleContent);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_cal__list, container, false);
+        View view = inflater.inflate(R.layout.fragment_schedule, container, false);
         findByid(view);
 
         textUI.setVisibility(View.GONE);

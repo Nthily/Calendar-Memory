@@ -35,7 +35,7 @@ public class Utils extends AppCompatActivity {
 
 
     public static void sendToastMsg(String text, Context context) {
-        @SuppressLint("ShowToast") Toast toast = Toast.makeText(context, null, Toast.LENGTH_LONG);
+        @SuppressLint("ShowToast") Toast toast = Toast.makeText(context, text, Toast.LENGTH_LONG);
         toast.setText(text);
         toast.show();
     }

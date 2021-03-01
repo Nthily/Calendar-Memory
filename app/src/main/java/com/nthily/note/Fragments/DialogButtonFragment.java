@@ -1,6 +1,8 @@
 package com.nthily.note.Fragments;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -15,6 +17,8 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 
 import com.nthily.note.R;
+
+import java.util.Objects;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -33,7 +37,8 @@ public class DialogButtonFragment extends DialogFragment implements View.OnClick
 
     private String mParam1;
     private String mParam2;
-    private EditText title, content;
+    private EditText title;
+    private EditText content;
     private Button finish;
     private ImageButton time;
 
@@ -41,15 +46,7 @@ public class DialogButtonFragment extends DialogFragment implements View.OnClick
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment DialogButtonFragment.
-     */
-    // TODO: Rename and change types and number of parameters
+
     public static DialogButtonFragment newInstance(String param1, String param2) {
         DialogButtonFragment fragment = new DialogButtonFragment();
         Bundle args = new Bundle();
@@ -69,17 +66,25 @@ public class DialogButtonFragment extends DialogFragment implements View.OnClick
     }
 
     private void findByid(View view) {
-        title = view.findViewById(R.id.title);
-        time = view.findViewById(R.id.time);
-        content = view.findViewById(R.id.content);
+        title = (EditText)view.findViewById(R.id.calendarTitle);
+        time = view.findViewById(R.id.calendarTime);
+        content = view.findViewById(R.id.calendarContent);
         finish = view.findViewById(R.id.finish);
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_dialog_button, container, false);
-        findByid(view);
-        return view;
+        return inflater.inflate(R.layout.fragment_dialog_button, container, false);
+    }
+
+    @Override
+    public Dialog onCreateDialog(Bundle savedInstanceState) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        View view = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_dialog_button, null);
+        findByid(view);     //当是 DialogFragment 时请在 onCreateDialog 中使用 find
+        finish.setOnClickListener(this);
+        builder.setView(view);
+        return builder.create();
     }
 
     @Override
@@ -90,8 +95,8 @@ public class DialogButtonFragment extends DialogFragment implements View.OnClick
             Intent intent = new Intent();
             intent.putExtra(TITLE, titleStr);
             intent.putExtra(CONTENT, contentStr);
-
             getTargetFragment().onActivityResult(Calendar.REQUEST_CODE, Activity.RESULT_OK, intent);
+
         }
     }
 }

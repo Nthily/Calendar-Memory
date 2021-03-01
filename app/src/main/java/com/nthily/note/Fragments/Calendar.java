@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.nthily.note.R;
+import com.nthily.note.Utilities.Utils;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -35,7 +36,7 @@ public class Calendar extends Fragment {
     private String mParam1;
     private String mParam2;
     private FloatingActionButton addEvent;
-
+    private DialogButtonFragment fragment;
     public Calendar() {
         // Required empty public constructor
     }
@@ -72,36 +73,40 @@ public class Calendar extends Fragment {
 
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQUEST_CODE){
-
-            String title = data.getStringExtra(DialogButtonFragment.TITLE);
-            String content= data.getStringExtra(DialogButtonFragment.CONTENT);
-
-        }
-    }
-
-
-    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_calendar, container, false);
         findByid(view);
 
         addEvent.setOnClickListener(new View.OnClickListener() {
-            @SuppressLint("RtlHardcoded")
-            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-            @Override
-            public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                builder.setView(R.layout.fragment_dialog_button);
-                AlertDialog dialog = builder.create();
-                dialog.show();
 
+            public void onClick(View v) {
+                fragment = new DialogButtonFragment();
+                fragment.setTargetFragment(Calendar.this, REQUEST_CODE);
+                fragment.show(getFragmentManager(), "null");
             }
+
         });
 
         return view;
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_CODE){
+
+            String title = data.getStringExtra(DialogButtonFragment.TITLE);
+            String content = data.getStringExtra(DialogButtonFragment.CONTENT);
+
+            Schedule schedule = new Schedule();
+            schedule.scheduleTitle.setText(title);
+
+            //TODO:创建日程
+//            Utils.sendToastMsg(title, getActivity());
+
+
+            fragment.dismiss();
+        }
     }
 }

@@ -20,15 +20,15 @@
             app:layout_constraintTop_toBottomOf="@+id/imageView3">
 
             <EditText
-                android:id="@+id/title"
+                android:id="@+id/calendarTitle"
                 android:layout_width="200dp"
                 android:layout_height="match_parent"
                 android:layout_marginTop="15dp"
+                android:autofillHints=""
                 android:background="@drawable/edit_input_border"
-                android:paddingStart="10dp"
-                tools:ignore="RtlSymmetry"
                 android:inputType="text"
-                android:autofillHints="" />
+                android:paddingStart="10dp"
+                tools:ignore="RtlSymmetry" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -42,21 +42,23 @@
 
         <ImageView
             android:id="@+id/imageView3"
-            android:layout_width="65dp"
-            android:layout_height="58dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:src="@mipmap/bbb"
+            android:layout_width="wrap_content"
+            android:layout_height="250dp"
+            android:contentDescription="@string/null_info"
+            android:scaleType="fitXY"
+            android:src="@mipmap/titlepaper"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.475"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@mipmap/titlepaper"
+            tools:srcCompat="@mipmap/titlepaper" />
 
         <EditText
-            android:id="@+id/content"
+            android:id="@+id/calendarContent"
             android:layout_width="280dp"
             android:layout_height="135dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="28dp"
+            android:autofillHints=""
             android:background="@drawable/edit_input_border"
             android:ems="10"
             android:enabled="true"
@@ -72,30 +74,42 @@
             android:selectAllOnFocus="true"
             android:textColorHint="#95A1AA"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.503"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
-            android:autofillHints="" />
-
-        <ImageView
-            android:id="@+id/time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginBottom="30dp"
-            app:layout_constraintBottom_toTopOf="@+id/content"
-            app:layout_constraintStart_toEndOf="@+id/relativeLayout"
-            app:srcCompat="@drawable/ic_date_range_24px" />
+            app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
 
         <Button
             android:id="@+id/finish"
             android:layout_width="280dp"
-            android:layout_height="53dp"
-            android:layout_marginTop="28dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:textColor="#FFFFFF"
+            android:clickable="true"
+            android:contentDescription="@null"
+            android:focusable="true"
+            android:background="#1DC792"
             android:text="@string/finish_button"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.503"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/content" />
+            app:layout_constraintTop_toBottomOf="@+id/calendarContent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <ImageButton
+            android:id="@+id/calendarTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="52dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:contentDescription="@null"
+            android:focusable="true"
+            app:layout_constraintStart_toEndOf="@+id/relativeLayout"
+            app:layout_constraintTop_toBottomOf="@+id/imageView3"
+            app:srcCompat="@drawable/ic_date_range_24px" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
